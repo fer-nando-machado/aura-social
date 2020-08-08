@@ -4,13 +4,9 @@
 .PHONY: help
 help:
 	$(info available commands:)
-	$(info -> build                   builds binary)
-	$(info -> test                    runs available tests)
-	$(info -> run                     runs application)
-
-.PHONY: build
-build:
-	npm run build
+	$(info -> test                   runs available tests)
+	$(info -> run                    starts application locally)
+	$(info -> publish                publishes changes to GitHub Pages)
 
 .PHONY: test
 test:
@@ -19,3 +15,7 @@ test:
 .PHONY: run
 run:
 	npm start
+
+.PHONY: publish
+publish:
+	npm run deploy
