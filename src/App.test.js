@@ -2,8 +2,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders app title', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/🔮/i);
-  expect(linkElement).toBeInTheDocument();
+  const title = getByText(/Aura Social/i);
+  expect(title).toBeInTheDocument();
 });
