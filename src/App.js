@@ -15,10 +15,16 @@ function InstagramAccess({id, redirect}) {
   );
 }
 
+function Header() {
+  return (
+    <div className="Header">Aura SociaL</div>
+  )
+}
+
 function App() {
   return (
     <div className="App">
-      <h1>Aura SociaL</h1>
+      <Header/>
       <InstagramAccess
         id={process.env.REACT_APP_INSTAGRAM_CLIENT_ID}
         redirect={process.env.REACT_APP_URL} />

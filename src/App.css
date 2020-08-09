@@ -1,25 +1,26 @@
 .App {
-  font-family: sans-serif;
+  font-family: 'Oxygen', sans-serif;
 }
 
-.App h1 {
+.Header {
   color: #262626;
-  font-size: 72px;
+  font-size: 66px;
   font-family: 'Sedgwick Ave Display', sans-serif;
+  padding: 16px 0;
 }
 
 .InstagramAccess {
   color: #FFFFFF;
   background-color: #262626;
   border-radius: 6px;
-  font-size: 23px;
+  font-size: 20px;
   height: 64px;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin: 0 14px;
-  padding: 0 14px;
+  margin: 0 16px;
+  padding: 0 16px;
 }
 
 .InstagramAccess:hover span {
