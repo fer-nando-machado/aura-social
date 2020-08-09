@@ -1,10 +1,33 @@
 .Header {
   color: #262626;
-  font-size: 66px;
   font-family: 'Sedgwick Ave Display', sans-serif;
   padding-bottom: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 350px;
+}
+
+.Header .HeaderTitle {
+  font-size: 66px;
+  padding-top: 10px;
 }
 
 .Header img {
   width: 240px;
+}
+
+.Header.HeaderInner {
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.Header.HeaderInner .HeaderTitle {
+  font-size: 48px;
+}
+
+.Header.HeaderInner img {
+  width: 74px;
 }

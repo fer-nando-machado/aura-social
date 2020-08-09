@@ -1,11 +1,13 @@
 import React from 'react';
 import './Header.css';
 
-function Header() {
+function Header({className}) {
   return (
-    <div className="Header">
-      <img src={process.env.REACT_APP_IMAGES + "lotus.svg"} alt="" />
-      <div>Aura SociaL</div>
+    <div className={`Header ${className}`}>
+      <a href="/aura-social/">
+        <img src={process.env.REACT_APP_IMAGES + "lotus.svg"} alt="" />
+      </a>
+      <div className="HeaderTitle">Aura SociaL</div>
     </div>
   )
 }
