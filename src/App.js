@@ -2,9 +2,7 @@ import React from 'react';
 
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
-  useRouteMatch,
   useLocation,
 } from "react-router-dom";
 
@@ -17,43 +15,45 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Switch>
-          <Route path="/aura-social">
-            <Routes />
-          </Route>
-        </Switch>
+        <Route path="/">
+          <Home />
+        </Route>
       </Router>
+
       <Footer/>
     </div>
   );
 }
 
+function Home() {
+  let query = useQuery();
 
-function Routes() {
-  let { path } = useRouteMatch();
-
-  return (
-    <Switch>
-      <Route exact path={path}>
-        <Header/>
-        <InstagramAccess />
-      </Route>
-      <Route path={`${path}/auth`}>
+  if (query.has("code")) {
+    console.log(query.get("code"))
+    return (
+      <>
         <Header className="HeaderInner"/>
-        <Auth />
-      </Route>
-    </Switch>
-  );
-}
+        Success.
+      </>
+    )
+  }
 
-function Auth() {
- let query = useQuery();
- console.log(query.get("code"))
+  if (query.has("error")) {
+    return (
+      <>
+        <Header className="HeaderInner"/>
+        Access denied. Click <a className="Link" href="/aura-social/">here</a> to try again.
+      </>
+    )
+  }
+
   return (
-    <div>
-      <h2>auth</h2>
-    </div>
-  );
+    <>
+      <Header/>
+      <InstagramAccess />
+    </>
+  )
+
 }
 
 function useQuery() {

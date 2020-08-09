@@ -10,7 +10,7 @@ function InstagramAccess() {
   return (
     <a className="InstagramAccess" href={url}>
       <img src={process.env.REACT_APP_IMAGES + "instagram.svg"} alt="" />
-      <span>Continue with Instagram</span>
+      <span className="Link">Continue with Instagram</span>
     </a>
   );
 }
