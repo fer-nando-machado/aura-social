@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App from './App';
+import Header from './Header';
 
-test('renders app title', () => {
-  const { getByText } = render(<App />);
+test('renders Header title', () => {
+  const { getByText } = render(<Header />);
   const title = getByText(/Aura Social/i);
   expect(title).toBeInTheDocument();
 });

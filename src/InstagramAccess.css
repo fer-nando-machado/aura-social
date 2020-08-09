@@ -1,0 +1,28 @@
+.InstagramAccess {
+  color: #FFFFFF;
+  background-color: #262626;
+  border-radius: 6px;
+  font-size: 20px;
+  height: 64px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 16px;
+  padding: 0 16px;
+}
+
+.InstagramAccess:hover span {
+  background: #f09433;
+  background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.InstagramAccess img {
+  height: 42px;
+  margin-right: 12px;
+}

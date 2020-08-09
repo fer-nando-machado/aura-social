@@ -1,0 +1,10 @@
+.Header {
+  color: #262626;
+  font-size: 66px;
+  font-family: 'Sedgwick Ave Display', sans-serif;
+  padding-bottom: 26px;
+}
+
+.Header img {
+  width: 240px;
+}
