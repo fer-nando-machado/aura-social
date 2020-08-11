@@ -4,7 +4,9 @@ import './Footer.css';
 function Footer() {
   return (
     <div className="Footer">
-      <a className="Link" href="https://github.com/fernandomachado90">Made with ♡ by Fernando Machado</a>
+      <a className="Link" href="https://github.com/fernandomachado90">
+        <span>Made with ♡ by Fernando Machado</span>
+      </a>
     </div>
   )
 }

@@ -1,4 +1,10 @@
-# Aura Social
+# aura-social
+
+React frontend page for **Aura Social**. See also [aura-social-api](https://github.com/fernandomachado90/aura-social-api).
+
+## Requisites
+
+- [Node](https://nodejs.org/en/)
 
 ## Commands
 

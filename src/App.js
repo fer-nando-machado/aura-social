@@ -9,6 +9,7 @@ import {
 import Header from './Header';
 import Footer from './Footer';
 import InstagramAccess from './InstagramAccess';
+import InstagramToken from './InstagramToken';
 import './App.css';
 
 function App() {
@@ -29,11 +30,12 @@ function Home() {
   let query = useQuery();
 
   if (query.has("code")) {
-    console.log(query.get("code"))
+    const code = query.get("code");
+
     return (
       <>
         <Header className="HeaderInner"/>
-        Success.
+        <InstagramToken code={code} />
       </>
     )
   }
@@ -53,7 +55,6 @@ function Home() {
       <InstagramAccess />
     </>
   )
-
 }
 
 function useQuery() {

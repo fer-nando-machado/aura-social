@@ -1,18 +1,19 @@
 .InstagramAccess {
-  color: #FFFFFF;
   background-color: #262626;
   border-radius: 6px;
-  font-size: 20px;
+  font-size: 18px;
   height: 64px;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin: 0 22px;
-  padding: 0 14px;
+  margin: 0 34px;
+}
+
+.InstagramAccess span {
+  color: #FFFFFF;
 }
 
 .InstagramAccess img {
   height: 42px;
-  margin-right: 12px;
 }
