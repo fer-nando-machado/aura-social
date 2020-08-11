@@ -24,4 +24,4 @@ Publishes static page to GitHub Pages using [gh-pages](https://github.com/tschau
 
 ## Credits
 
-Icons made by (https://www.flaticon.com/authors/good-ware)[Good Ware].
+Icons made by [Good Ware](https://www.flaticon.com/authors/good-ware).
