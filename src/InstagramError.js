@@ -5,7 +5,7 @@ import './InstagramError.css';
 function InstagramError({message}) {
   return (
     <div className="InstagramError">
-      <p>{message}</p>
+      {message}
       <p><a className="Link" href="/aura-social/"><span>Try Again</span></a></p>
     </div>
   )

@@ -1,3 +1,7 @@
 .InstagramError a {
   text-decoration: underline;
 }
+
+.InstagramError p {
+  padding: 12px 0;
+}
