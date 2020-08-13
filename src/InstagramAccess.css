@@ -3,11 +3,12 @@
   border-radius: 6px;
   font-size: 18px;
   height: 64px;
+  width: 282px;
+  margin: auto;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin: 0 107px;
 }
 
 .InstagramAccess span {
