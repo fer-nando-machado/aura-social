@@ -13,3 +13,7 @@
   color: #BBBBBB;
   text-decoration: none;
 }
+
+.Footer span {
+  white-space:nowrap;
+}
