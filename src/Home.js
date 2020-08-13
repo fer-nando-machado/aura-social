@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 
-import Header from './Header';
-import Footer from './Footer';
-import InstagramAccess from './InstagramAccess';
-import InstagramError from './InstagramError';
+import './Home.css';
+
+import Header from './components/Header';
+import Footer from './components/Footer';
+import InstagramAccess from './components/InstagramAccess';
+import InstagramError from './components/InstagramError';
 
 function Home({query}) {
   const [step, setStep] = useState(0);
@@ -12,13 +14,14 @@ function Home({query}) {
   const [token, setToken] = useState();
 
   useEffect(() => {
-    if (query.error) {
-      setError(query.error)
-      setStep(steps.ERROR)
-    }
-    else if (query.code) {
+    if (!query) return
+
+    if (query.code) {
       setCode(query.code)
       setStep(steps.AUTHORIZE)
+    } else if (query.error) {
+      setError(query.error)
+      setStep(steps.ERROR)
     }
   }, [query]);
 
@@ -61,27 +64,27 @@ function Home({query}) {
 
   }, [token]);
 
+  const steps = {
+    ACCESS: 0,
+    ERROR: 1,
+    AUTHORIZE: 2,
+    PROCESS: 3,
+  }
+
   return (
-    <div>
+    <div className="Home">
       <Header className={step > steps.ACCESS ? "HeaderInner" : ""}/>
       {
         {
           0: <InstagramAccess />,
           1: <InstagramError message={error} />,
-          2: <>Loading...</>,
-          3: <>Ready to process</>,
+          2: <>Authorizing...</>,
+          3: <>Processing...</>,
         }[step]
       }
       <Footer/>
     </div>
   )
-}
-
-const steps = {
-  ACCESS: 0,
-  ERROR: 1,
-  AUTHORIZE: 2,
-  PROCESS: 3,
 }
 
 export default Home;

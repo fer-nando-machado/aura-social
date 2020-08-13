@@ -7,17 +7,14 @@ import {
 } from "react-router-dom";
 
 import Home from './Home'
-import './App.css';
 
-function App() {
+function Routes() {
   return (
-    <div className="App">
-      <Router>
-        <Route path="/">
-          <HomeWithQueryParams />
-        </Route>
-      </Router>
-    </div>
+    <Router>
+      <Route path="/">
+        <HomeWithQueryParams />
+      </Route>
+    </Router>
   );
 }
 
@@ -36,4 +33,4 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-export default App;
+export default Routes;
