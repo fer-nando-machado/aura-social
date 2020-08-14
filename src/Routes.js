@@ -9,6 +9,7 @@ import {
 import Home from './Home'
 
 function Routes() {
+  const HomeWithQueryParams = withQueryParams(Home)
   return (
     <Router>
       <Route path="/">
@@ -18,15 +19,15 @@ function Routes() {
   );
 }
 
-function HomeWithQueryParams() {
-  const query = useQuery();
-  const params = {
-    error: query.get("error_description"),
-    code: query.get("code")
+const withQueryParams = (Component) => {
+  return () => {
+    const query = useQuery();
+    const params = {
+      error: query.get("error_description"),
+      code: query.get("code")
+    }
+    return <Component query={params}/>
   }
-  return (
-    <Home query={params}/>
-  )
 }
 
 function useQuery() {
