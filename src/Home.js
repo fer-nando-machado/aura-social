@@ -36,20 +36,23 @@ function Home({ query }) {
     }
 
     const fetchData = async () => {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      })
-      const body = await response.json()
-
-      if (body.user_id) {
-        setToken(body.access_token)
-        setStep(steps.PROCESS)
-      } else {
-        setError(body.error_message || "Unexpected error")
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        })
+        const body = await response.json()
+        if (body.user_id) {
+          setToken(body.access_token)
+          setStep(steps.PROCESS)
+        } else {
+          throw body
+        }
+      } catch (error) {
+        setError(error.error_message || "Unexpected error")
         setStep(steps.ERROR)
-        console.warn(body)
+        console.warn(error)
       }
     }
     fetchData()
@@ -68,8 +71,8 @@ function Home({ query }) {
         {
           0: <InstagramAccess />,
           1: <InstagramError message={error} />,
-          2: <>Authorizing...</>,
-          3: <>Processing...</>,
+          2: <div>Authorizing...</div>,
+          3: <div>Processing...</div>,
         }[step]
       }
       <Footer />
