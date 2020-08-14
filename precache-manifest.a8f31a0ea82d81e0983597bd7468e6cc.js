@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "532c6869831277c8a9559ef76bf379fa",
+    "revision": "225397bf096c1c40603e24a4d7ef256f",
     "url": "/aura-social/index.html"
   },
   {
-    "revision": "2466b1faa4f3129a73bf",
-    "url": "/aura-social/static/css/main.964ae2ca.chunk.css"
+    "revision": "baabf4b65d35178c698c",
+    "url": "/aura-social/static/css/main.f3ba5c64.chunk.css"
   },
   {
     "revision": "f3b2bafc4c67afed5f4f",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/aura-social/static/js/2.22198fde.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2466b1faa4f3129a73bf",
-    "url": "/aura-social/static/js/main.581a0998.chunk.js"
+    "revision": "baabf4b65d35178c698c",
+    "url": "/aura-social/static/js/main.43c03d70.chunk.js"
   },
   {
     "revision": "c349f0e33c20ec38d935",
