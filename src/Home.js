@@ -64,13 +64,6 @@ function Home({query}) {
 
   }, [token]);
 
-  const steps = {
-    ACCESS: 0,
-    ERROR: 1,
-    AUTHORIZE: 2,
-    PROCESS: 3,
-  }
-
   return (
     <div className="Home">
       <Header inner={step > steps.ACCESS}/>
@@ -85,6 +78,13 @@ function Home({query}) {
       <Footer/>
     </div>
   )
+}
+
+const steps = {
+  ACCESS: 0,
+  ERROR: 1,
+  AUTHORIZE: 2,
+  PROCESS: 3,
 }
 
 export default Home;
