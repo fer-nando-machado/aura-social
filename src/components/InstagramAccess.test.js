@@ -12,7 +12,8 @@ test('renders InstagramAccess button', () => {
   expect(img).toBeInTheDocument();
   expect(img.src).toContain(`${process.env.REACT_APP_IMAGES}instagram.svg`)
 
-  expect(container.firstChild).toHaveAttribute('href',
+  const link = container.querySelector('.Link')
+  expect(link).toHaveAttribute('href',
   'https://api.instagram.com/oauth/authorize' +
   '?client_id=' + process.env.REACT_APP_INSTAGRAM_CLIENT_ID +
   '&redirect_uri=' + process.env.REACT_APP_URL +
