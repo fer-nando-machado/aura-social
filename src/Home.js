@@ -73,7 +73,7 @@ function Home({query}) {
 
   return (
     <div className="Home">
-      <Header className={step > steps.ACCESS ? "HeaderInner" : ""}/>
+      <Header inner={step > steps.ACCESS}/>
       {
         {
           0: <InstagramAccess />,
