@@ -10,7 +10,7 @@ test('renders Header', () => {
 
   const img = getByAltText(/Aura Social/i)
   expect(img).toBeInTheDocument();
-  expect(img.src).toContain('lotus.svg')
+  expect(img.src).toContain(`${process.env.REACT_APP_IMAGES}lotus.svg`)
 
   expect(container.firstChild).toHaveClass('Header')
   expect(container.firstChild).not.toHaveClass('HeaderInner')
