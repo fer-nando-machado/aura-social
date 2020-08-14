@@ -1,17 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react"
 
-import './Home.css';
+import "./Home.css"
 
-import Header from './components/Header';
-import Footer from './components/Footer';
-import InstagramAccess from './components/InstagramAccess';
-import InstagramError from './components/InstagramError';
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import InstagramAccess from "./components/InstagramAccess"
+import InstagramError from "./components/InstagramError"
 
-function Home({query}) {
-  const [step, setStep] = useState(0);
-  const [code, setCode] = useState();
-  const [error, setError] = useState();
-  const [token, setToken] = useState();
+function Home({ query }) {
+  const [step, setStep] = useState(0)
+  const [code, setCode] = useState()
+  const [error, setError] = useState()
+  const [token, setToken] = useState()
 
   useEffect(() => {
     if (!query) return
@@ -23,12 +23,12 @@ function Home({query}) {
       setError(query.error)
       setStep(steps.ERROR)
     }
-  }, [query]);
+  }, [query])
 
   useEffect(() => {
     if (!code) return
 
-    const url = process.env.REACT_APP_API + "authorize";
+    const url = process.env.REACT_APP_API + "authorize"
     const data = {
       client_id: process.env.REACT_APP_INSTAGRAM_CLIENT_ID,
       redirect_uri: process.env.REACT_APP_URL,
@@ -37,9 +37,9 @@ function Home({query}) {
 
     const fetchData = async () => {
       const response = await fetch(url, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json',},
-            body: JSON.stringify(data),
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       })
       const body = await response.json()
 
@@ -47,26 +47,23 @@ function Home({query}) {
         setToken(body.access_token)
         setStep(steps.PROCESS)
       } else {
-        setError(body.error_message || "Unexpected error");
+        setError(body.error_message || "Unexpected error")
         setStep(steps.ERROR)
         console.warn(body)
       }
     }
-    fetchData();
-
-  }, [code]);
-
+    fetchData()
+  }, [code])
 
   useEffect(() => {
     if (!token) return
 
     console.log("// TODO...")
-
-  }, [token]);
+  }, [token])
 
   return (
     <div className="Home">
-      <Header inner={step > steps.ACCESS}/>
+      <Header inner={step > steps.ACCESS} />
       {
         {
           0: <InstagramAccess />,
@@ -75,7 +72,7 @@ function Home({query}) {
           3: <>Processing...</>,
         }[step]
       }
-      <Footer/>
+      <Footer />
     </div>
   )
 }
@@ -87,4 +84,4 @@ const steps = {
   PROCESS: 3,
 }
 
-export default Home;
+export default Home

@@ -10,9 +10,17 @@ React frontend page for **Aura Social**. See also [aura-social-api](https://gith
 
 In the project directory, you can run:
 
+### `make setup`
+
+Installs dependencies modules.
+
+### `make format`
+
+Formats source code using [Prettier](https://www.npmjs.com/package/prettier).
+
 ### `make start`
 
-Runs the app in the development mode on [http://localhost:3000](http://localhost:3000).
+Runs the app in development mode on [http://localhost:3000](http://localhost:3000).
 
 ### `make test`
 

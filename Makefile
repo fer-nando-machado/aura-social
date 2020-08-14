@@ -4,9 +4,19 @@
 .PHONY: help
 help:
 	$(info available commands:)
+	$(info -> setup                  installs dependencies)
+	$(info -> format                 formats source code)
 	$(info -> test                   runs available tests)
 	$(info -> run                    starts application locally)
 	$(info -> publish                publishes changes to GitHub Pages)
+
+.PHONY: setup
+setup:
+	npm install
+
+.PHONY: format
+format:
+	npm run format
 
 .PHONY: test
 test:

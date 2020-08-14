@@ -1,7 +1,7 @@
-import React from 'react';
-import './Header.css';
+import React from "react"
+import "./Header.css"
 
-function Header({inner}) {
+function Header({ inner }) {
   const className = "Header " + (inner ? "HeaderInner" : "")
 
   return (
@@ -12,4 +12,4 @@ function Header({inner}) {
   )
 }
 
-export default Header;
+export default Header
