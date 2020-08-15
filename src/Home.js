@@ -5,7 +5,7 @@ import "./Home.css"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import InstagramAccess from "./components/InstagramAccess"
-import InstagramError from "./components/InstagramError"
+import InstagramStep from "./components/InstagramStep"
 
 function Home({ query }) {
   const [step, setStep] = useState(0)
@@ -70,9 +70,9 @@ function Home({ query }) {
       {
         {
           0: <InstagramAccess />,
-          1: <InstagramError message={error} />,
-          2: <div>Authorizing...</div>,
-          3: <div>Processing...</div>,
+          1: <InstagramStep message={error} retry={true} />,
+          2: <InstagramStep message="Authorizing..." />,
+          3: <InstagramStep message="Processing..." />,
         }[step]
       }
       <Footer />
