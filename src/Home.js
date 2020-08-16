@@ -31,7 +31,12 @@ function Home({ query }) {
 
   useEffect(() => {
     if (!token) return
-    // TODO
+
+    // TODO Fetching... Processing...
+    // api
+    //   .fetchMedia(token)
+    //   .then((response) => console.log(response))
+    //   .catch((error) => setError(error))
   }, [token])
 
   useEffect(() => {
