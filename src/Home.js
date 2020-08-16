@@ -7,84 +7,53 @@ import Footer from "./components/Footer"
 import InstagramAccess from "./components/InstagramAccess"
 import InstagramStep from "./components/InstagramStep"
 
+import api from "./external/api"
+
 function Home({ query }) {
   const [step, setStep] = useState(0)
-  const [code, setCode] = useState()
   const [error, setError] = useState()
+  const [code, setCode] = useState()
   const [token, setToken] = useState()
 
   useEffect(() => {
     if (!query) return
-
-    if (query.code) {
-      setCode(query.code)
-      setStep(steps.AUTHORIZE)
-    } else if (query.error) {
-      setError(query.error)
-      setStep(steps.ERROR)
-    }
+    if (query.code) setCode(query.code)
+    else if (query.error) setError(query.error)
   }, [query])
 
   useEffect(() => {
     if (!code) return
-
-    const url = process.env.REACT_APP_API + "authorize"
-    const data = {
-      client_id: process.env.REACT_APP_INSTAGRAM_CLIENT_ID,
-      redirect_uri: process.env.REACT_APP_URL,
-      code: code,
-    }
-
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        })
-        const body = await response.json()
-        if (body.user_id) {
-          setToken(body.access_token)
-          setStep(steps.PROCESS)
-        } else {
-          throw body
-        }
-      } catch (error) {
-        setError(error.error_message || "Unexpected error")
-        setStep(steps.ERROR)
-        console.warn(error)
-      }
-    }
-    fetchData()
+    api
+      .authorize(code)
+      .then((token) => setToken(token))
+      .catch((error) => setError(error))
   }, [code])
 
   useEffect(() => {
     if (!token) return
-
-    console.log("// TODO...")
+    // TODO
   }, [token])
+
+  useEffect(() => {
+    if (error) setStep(9)
+    else if (token) setStep(2)
+    else if (code) setStep(1)
+  }, [error, code, token])
 
   return (
     <div className="Home">
-      <Header inner={step > steps.ACCESS} />
+      <Header inner={step > 0} />
       {
         {
           0: <InstagramAccess />,
-          1: <InstagramStep message={error} retry={true} />,
-          2: <InstagramStep message="Authorizing..." />,
-          3: <InstagramStep message="Processing..." />,
+          1: <InstagramStep message="Authorizing..." />,
+          2: <InstagramStep message="Processing..." />,
+          9: <InstagramStep message={error} retry={true} />,
         }[step]
       }
       <Footer />
     </div>
   )
-}
-
-const steps = {
-  ACCESS: 0,
-  ERROR: 1,
-  AUTHORIZE: 2,
-  PROCESS: 3,
 }
 
 export default Home
