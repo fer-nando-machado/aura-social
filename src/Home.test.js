@@ -5,6 +5,8 @@ import Home from "./Home"
 import api from "./external/api"
 jest.mock("./external/api")
 
+jest.mock("./components/InstagramMedia", () => ({ props }) => <div className="InstagramMedia" {...props} />)
+
 describe("renders Home", () => {
   test("Instagram access step", async () => {
     const { container } = render(<Home />)
@@ -44,13 +46,14 @@ describe("renders Home", () => {
     expect(step).toBeInTheDocument()
   })
 
-  test("Instagram processing step", async () => {
+  test("Instagram fetching media step", async () => {
     api.authorize.mockResolvedValue("token")
+    api.fetchMedia.mockImplementation(() => sleep(10000))
 
     const query = { code: 123 }
     const { container, getByText } = render(<Home query={query} />)
 
-    await waitFor(() => expect(getByText(/Processing.../i)).toBeInTheDocument())
+    await waitFor(() => expect(getByText(/Fetching media.../i)).toBeInTheDocument())
     const step = container.querySelector(".InstagramStep")
     expect(step).toBeInTheDocument()
   })
