@@ -21,6 +21,7 @@ const withQueryParams = (Component) => {
     const params = {
       error: query.get("error_description"),
       code: query.get("code"),
+      debug: query.get("debug"),
     }
     return <Component query={params} />
   }

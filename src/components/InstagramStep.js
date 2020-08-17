@@ -4,7 +4,7 @@ import "./InstagramStep.css"
 
 function InstagramStep({ message, retry }) {
   return (
-    <div className="InstagramStep">
+    <div className="InstagramStep Content">
       {message}
       {retry && (
         <p>

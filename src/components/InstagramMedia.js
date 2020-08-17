@@ -4,33 +4,28 @@ import colors from "../external/colors"
 
 import "./InstagramMedia.css"
 
-function InstagramMedia({ urls }) {
-  const total = urls.length
+function InstagramMedia({ media }) {
   const [index, setIndex] = useState(0)
-  const [color, setColor] = useState("rgb(255,255,255)")
 
-  async function fetchColors(event) {
-    const color = await colors.getColor(event.target)
-    setColor(`rgb(${color[0]}, ${color[1]}, ${color[2]})`)
-    if (index + 1 < total) setIndex(index + 1)
-  }
+  //const username = media.username
+  const urls = media.images
+  const total = urls.length
+  const inProgress = index < total
+  const progress = Math.floor((index * 100) / total)
 
-  function getProgress() {
-    return Math.floor(((index + 1) * 100) / total)
+  async function fetchColor(img) {
+    const color = await colors.getDominantColor(img)
+    console.log(color)
+    setIndex(index + 1)
   }
 
   return (
-    <div className="InstagramMedia">
-      {index < total && (
-        <img
-          src={urls[index]}
-          onLoad={(event) => fetchColors(event)}
-          style={{ border: `3px dashed ${color}` }}
-          alt=""
-          crossOrigin="anonymous"
-        />
+    <div className="InstagramMedia Content">
+      {inProgress && (
+        <img crossOrigin="anonymous" alt="" src={urls[index]} onLoad={(event) => fetchColor(event.target)} />
       )}
-      <span>{getProgress()}%</span>
+      <img src={`${process.env.REACT_APP_IMAGES}instagram.svg`} alt="" className={inProgress ? "hidden" : ""} />
+      <span>{progress}%</span>
     </div>
   )
 }

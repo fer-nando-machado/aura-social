@@ -1,6 +1,5 @@
 .InstagramMedia {
   position: relative;
-  text-align: center;
 }
 
 .InstagramMedia span {
@@ -21,6 +20,11 @@
   -webkit-animation:spin 2s linear infinite;
   -moz-animation:spin 2s linear infinite;
   animation:spin 2s linear infinite;
+  filter: blur(20px);
+}
+
+.InstagramMedia .hidden {
+  display: none;
 }
 
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
