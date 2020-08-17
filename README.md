@@ -33,4 +33,4 @@ Publishes static page to GitHub Pages using [gh-pages](https://github.com/tschau
 ## Thanks
 
 - Icons made by [Good Ware](https://www.flaticon.com/authors/good-ware).
-- [Color Thief](https://github.com/lokesh/color-thief/) browser library by [Lokesh](https://github.com/lokesh/).
+- [Color Thief](https://lokeshdhakar.com/projects/color-thief/) browser library by [Lokesh](https://github.com/lokesh/).
