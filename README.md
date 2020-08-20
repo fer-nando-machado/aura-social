@@ -34,3 +34,4 @@ Publishes static page to GitHub Pages using [gh-pages](https://github.com/tschau
 
 - Icons made by [Good Ware](https://www.flaticon.com/authors/good-ware).
 - [Color Thief](https://lokeshdhakar.com/projects/color-thief/) browser library by [Lokesh](https://github.com/lokesh/).
+- [Alan Zucconi](https://twitter.com/AlanZucconi)'s amazing blog about [colour sorting](https://www.alanzucconi.com/2015/09/30/colour-sorting/).
