@@ -9,7 +9,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 150px;
+  height: 500px;
+  font-size: 25px;
 }
 
 .Link:hover > span {

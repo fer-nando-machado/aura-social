@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 import colors from "../external/colors"
 
@@ -6,6 +6,8 @@ import "./InstagramMedia.css"
 
 function InstagramMedia({ media }) {
   const [index, setIndex] = useState(0)
+  const [palette, setPalette] = useState([])
+  const [aura, setAura] = useState()
 
   //const username = media.username
   const urls = media.images
@@ -14,18 +16,35 @@ function InstagramMedia({ media }) {
   const progress = Math.floor((index * 100) / total)
 
   async function fetchColor(img) {
-    const color = await colors.getDominantColor(img)
-    console.log(color)
+    const rgbPalette = colors.getPalette(img, 1)
+    setPalette(palette.concat(rgbPalette))
     setIndex(index + 1)
   }
+
+  useEffect(() => {
+    if (inProgress) return
+
+    const str = palette
+      .map(colors.rgb2hsl)
+      .sort(colors.sort3D)
+      .map(colors.hsl2rgb)
+      //.map((rgb) => `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]}), transparent`)
+      .map((rgb) => `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`)
+
+    console.log(str)
+    setAura(`conic-gradient(${str})`)
+  }, [palette, inProgress])
 
   return (
     <div className="InstagramMedia Content">
       {inProgress && (
-        <img crossOrigin="anonymous" alt="" src={urls[index]} onLoad={(event) => fetchColor(event.target)} />
+        <>
+          <img crossOrigin="anonymous" alt="" src={urls[index]} onLoad={(event) => fetchColor(event.target)} />
+          <span>{progress}%</span>
+        </>
       )}
-      <img src={`${process.env.REACT_APP_IMAGES}instagram.svg`} alt="" className={inProgress ? "hidden" : ""} />
-      <span>{progress}%</span>
+
+      {!inProgress && <div className="aura" style={{ backgroundImage: aura }} />}
     </div>
   )
 }

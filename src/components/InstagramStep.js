@@ -2,17 +2,11 @@ import React from "react"
 
 import "./InstagramStep.css"
 
-function InstagramStep({ message, retry }) {
+function InstagramStep({ message }) {
   return (
     <div className="InstagramStep Content">
-      {message}
-      {retry && (
-        <p>
-          <a className="Link" href="/aura-social/">
-            <span>Try Again</span>
-          </a>
-        </p>
-      )}
+      <img src={`${process.env.REACT_APP_IMAGES}instagram.svg`} alt="" />
+      <span>{message}</span>
     </div>
   )
 }

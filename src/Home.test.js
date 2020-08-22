@@ -5,8 +5,11 @@ import Home from "./Home"
 import api from "./external/api"
 jest.mock("./external/api")
 
-jest.mock("./components/InstagramMedia", () =>
-( {media} ) => <div className="InstagramMedia">{media.username} {media.images}</div>)
+jest.mock("./components/InstagramMedia", () => ({ media }) => (
+  <div className="InstagramMedia">
+    {media.username} {media.images}
+  </div>
+))
 
 describe("renders Home", () => {
   test("Instagram access step", async () => {
@@ -20,7 +23,7 @@ describe("renders Home", () => {
     const { container, getByText } = render(<Home query={query} />)
 
     expect(getByText(/this is an error/i)).toBeInTheDocument()
-    expect(container.querySelector(".InstagramStep")).toBeInTheDocument()
+    expect(container.querySelector(".InstagramError")).toBeInTheDocument()
   })
 
   test("Instagram authorizing step", async () => {
@@ -40,7 +43,7 @@ describe("renders Home", () => {
     const { container, getByText } = render(<Home query={query} />)
 
     await waitFor(() => expect(getByText(/an error happened/i)).toBeInTheDocument())
-    expect(container.querySelector(".InstagramStep")).toBeInTheDocument()
+    expect(container.querySelector(".InstagramError")).toBeInTheDocument()
   })
 
   test("Instagram fetching media step", async () => {
@@ -56,7 +59,7 @@ describe("renders Home", () => {
 
   test("Instagram processing colors step", async () => {
     api.authorize.mockResolvedValue("token")
-    api.fetchMedia.mockResolvedValue({username: "user", images: ["a.jpg", "b.jpg", "c.jpg"]})
+    api.fetchMedia.mockResolvedValue({ username: "user", images: ["a.jpg", "b.jpg", "c.jpg"] })
 
     const query = { code: 123 }
     const { container, getByText, debug } = render(<Home query={query} />)

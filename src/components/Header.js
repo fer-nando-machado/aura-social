@@ -6,7 +6,9 @@ function Header({ inner }) {
 
   return (
     <div className={className}>
-      <img src={`${process.env.REACT_APP_IMAGES}lotus.svg`} alt="Aura Social" />
+      <a href="/aura-social/">
+        <img src={`${process.env.REACT_APP_IMAGES}lotus.svg`} alt="" />
+      </a>
       <div className="HeaderTitle">Aura SociaL</div>
     </div>
   )

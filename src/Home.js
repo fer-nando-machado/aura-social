@@ -5,6 +5,7 @@ import "./Home.css"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import InstagramAccess from "./components/InstagramAccess"
+import InstagramError from "./components/InstagramError"
 import InstagramStep from "./components/InstagramStep"
 import InstagramMedia from "./components/InstagramMedia"
 
@@ -57,7 +58,7 @@ function Home({ query }) {
           1: <InstagramStep message="Authorizing..." />,
           2: <InstagramStep message="Fetching media..." />,
           3: <InstagramMedia media={media} />,
-          9: <InstagramStep message={error} retry={true} />,
+          9: <InstagramError message={error} />,
         }[step]
       }
       <Footer />

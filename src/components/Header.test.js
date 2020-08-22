@@ -8,7 +8,7 @@ test("renders Header", () => {
   const title = getByText(/Aura Social/i)
   expect(title).toBeInTheDocument()
 
-  const img = getByAltText(/Aura Social/i)
+  const img = getByAltText("")
   expect(img).toBeInTheDocument()
   expect(img.src).toContain(`${process.env.REACT_APP_IMAGES}lotus.svg`)
 
