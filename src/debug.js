@@ -101,6 +101,12 @@ const debug = {
     [194, 139, 68],
     [206, 68, 126],
   ],
+  paletteRandomizer: (n) =>
+    Array.from({ length: n }, () => [
+      Math.floor(Math.random() * 255),
+      Math.floor(Math.random() * 255),
+      Math.floor(Math.random() * 255),
+    ]),
   media: {
     username: "fernandomach7do",
     images: [
