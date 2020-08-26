@@ -1,5 +1,7 @@
 .InstagramMedia {
   position: relative;
+  /*display: flex;
+  flex-direction: row;*/
 }
 
 .InstagramMedia span {
@@ -12,19 +14,21 @@
 }
 
 .InstagramMedia img {
-  width: 150px;
-  height: 150px;
+  margin: 20px;
+  width: 340px;
+  height: 340px;
   object-fit: cover;
   border-radius: 50%;
   -webkit-animation:spin 2s linear infinite;
   -moz-animation:spin 2s linear infinite;
   animation:spin 2s linear infinite;
-  filter: blur(20px);
+  filter: blur(30px);
 }
 
 .InstagramMedia .aura {
-  width: 500px;
-  height: 500px;
+  margin: 10px;
+  width: 360px;
+  height: 360px;
   object-fit: cover;
   border-radius: 50%;
   -webkit-animation:spin 60s linear infinite;

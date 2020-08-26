@@ -6,39 +6,32 @@ import debug from "../debug"
 import "./InstagramMedia.css"
 
 function InstagramMedia({ media }) {
-  const [index, setIndex] = useState(9) //useState(0)
+  const [index, setIndex] = useState(0) //useState(9)
   const [palette, setPalette] = useState([])
   const [aura, setAura] = useState()
 
-  //const username = media.username
+  const username = media.username
   const urls = media.images
   const total = urls.length
   const inProgress = index < total
   const progress = Math.floor((index * 100) / total)
 
   async function fetchColor(img) {
-    const rgbPalette = colors.getPalette(img, 1)
-    setPalette(palette.concat(rgbPalette))
-    setPalette(debug.palette)
+    const rgb = colors.getPalette(img, 1)
+    setPalette(palette.concat(rgb))
+    //setPalette(debug.paletteRandomizer(1000))
     setIndex(index + 1)
   }
 
   useEffect(() => {
     if (inProgress) return
 
-    const str = palette
-      .map(colors.rgb2hsl)
-      // .filter(hsl => {
-      //   const [h,s,l] = hsl
-      //   console.log(hsl)
-      //   return -0.7 < s && s < -0.2
-      // })
-      .sort(colors.sort3D)
-      .map(colors.hsl2rgb)
-      .map((rgb) => `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]}), transparent`)
+    const gradient = palette
+      .map((rgb) => ({ rgb: rgb, hsl: colors.rgb2hsl(rgb) }))
+      .sort((a, z) => colors.sort3D(a.hsl, z.hsl))
+      .map((color) => `rgb(${color.rgb.toString()}), transparent`)
 
-    console.log(str)
-    setAura(`conic-gradient(${str})`)
+    setAura(`conic-gradient(${gradient})`)
   }, [palette, inProgress])
 
   return (
@@ -49,8 +42,7 @@ function InstagramMedia({ media }) {
           <span>{progress}%</span>
         </>
       )}
-
-      {!inProgress && <div className="aura" style={{ backgroundImage: aura }} />}
+      {!inProgress && <div className="aura" style={{ backgroundImage: aura }} />}@{username}
     </div>
   )
 }
