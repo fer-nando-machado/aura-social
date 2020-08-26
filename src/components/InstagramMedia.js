@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react"
 
 import colors from "../external/colors"
+import debug from "../debug"
 
 import "./InstagramMedia.css"
 
 function InstagramMedia({ media }) {
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(9) //useState(0)
   const [palette, setPalette] = useState([])
   const [aura, setAura] = useState()
 
@@ -18,6 +19,7 @@ function InstagramMedia({ media }) {
   async function fetchColor(img) {
     const rgbPalette = colors.getPalette(img, 1)
     setPalette(palette.concat(rgbPalette))
+    setPalette(debug.palette)
     setIndex(index + 1)
   }
 
@@ -26,10 +28,14 @@ function InstagramMedia({ media }) {
 
     const str = palette
       .map(colors.rgb2hsl)
+      // .filter(hsl => {
+      //   const [h,s,l] = hsl
+      //   console.log(hsl)
+      //   return -0.7 < s && s < -0.2
+      // })
       .sort(colors.sort3D)
       .map(colors.hsl2rgb)
-      //.map((rgb) => `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]}), transparent`)
-      .map((rgb) => `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`)
+      .map((rgb) => `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]}), transparent`)
 
     console.log(str)
     setAura(`conic-gradient(${str})`)
