@@ -19,7 +19,7 @@ function InstagramMedia({ media }) {
   async function fetchColor(img) {
     const rgb = colors.getPalette(img, 1)
     setPalette(palette.concat(rgb))
-    //setPalette(debug.paletteRandomizer(1000))
+    //setPalette(debug.paletteRandomizer(100))
     setIndex(index + 1)
   }
 
@@ -29,9 +29,14 @@ function InstagramMedia({ media }) {
     const gradient = palette
       .map((rgb) => ({ rgb: rgb, hsl: colors.rgb2hsl(rgb) }))
       .sort((a, z) => colors.sort3D(a.hsl, z.hsl))
-      .map((color) => `rgb(${color.rgb.toString()}), transparent`)
+      .map((color) => `rgb(${color.rgb.toString()})`)
 
-    setAura(`conic-gradient(${gradient})`)
+    const conicGradient = new window.ConicGradient({
+      stops: gradient.toString(),
+      repeating: false,
+    })
+
+    setAura(`url(${conicGradient.dataURL})`)
   }, [palette, inProgress])
 
   return (

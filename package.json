@@ -5,6 +5,8 @@
   "private": true,
   "dependencies": {
     "colorthief": "^2.3.2",
+    "conic-gradient": "^1.0.0",
+    "prefixfree": "^1.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
@@ -13,7 +15,8 @@
   "scripts": {
     "format": "prettier --write --no-semi --trailing-comma es5 --print-width 120 '**/*.js'",
     "start": "HTTPS=true react-scripts start",
-    "build": "react-scripts build",
+    "bundle": "cp node_modules/prefixfree/prefixfree.min.js node_modules/conic-gradient/conic-gradient.js public/scripts/",
+    "build": "npm run bundle && react-scripts build",
     "test": "react-scripts test --env jest-environment-jsdom-fourteen",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",

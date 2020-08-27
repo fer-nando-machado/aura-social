@@ -6,6 +6,7 @@ help:
 	$(info available commands:)
 	$(info -> setup                  installs dependencies)
 	$(info -> format                 formats source code)
+	$(info -> build                  builds deployable version)
 	$(info -> test                   runs available tests)
 	$(info -> run                    starts application locally)
 	$(info -> publish                publishes changes to GitHub Pages)
@@ -17,6 +18,10 @@ setup:
 .PHONY: format
 format:
 	npm run format
+
+.PHONY: build
+build:
+	npm run build
 
 .PHONY: test
 test:
