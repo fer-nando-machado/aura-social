@@ -38,5 +38,5 @@ Publishes static page to GitHub Pages using [gh-pages](https://github.com/tschau
 
 - [Good Ware](https://www.flaticon.com/authors/good-ware)'s dazzling icons.
 - [Lokesh](https://github.com/lokesh/)'s image color palette grabber [Color Thief](https://lokeshdhakar.com/projects/color-thief/).
-- [Lea Verou](https://lea.verou.me/)'s ground-breaking [-prefix-free](http://leaverou.github.io/prefixfree/) and [conic-gradient() polyfill](https://leaverou.github.io/conic-gradient/).
+- [Lea Verou](https://lea.verou.me/)'s ground-breaking [-prefix-free](https://leaverou.github.io/prefixfree/) and [conic-gradient() polyfill](https://leaverou.github.io/conic-gradient/).
 - [Alan Zucconi](https://twitter.com/AlanZucconi)'s amazing blog about [colour sorting](https://www.alanzucconi.com/2015/09/30/colour-sorting/).
