@@ -29,7 +29,6 @@
   margin: 10px;
   width: 360px;
   height: 360px;
-  object-fit: cover;
   border-radius: 50%;
   animation:spin 60s linear infinite;
 }

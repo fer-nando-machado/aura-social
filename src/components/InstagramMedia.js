@@ -4,6 +4,7 @@ import colors from "../external/colors"
 import debug from "../debug"
 
 import "./InstagramMedia.css"
+import "./InstagramRays.scss"
 
 function InstagramMedia({ media }) {
   const [index, setIndex] = useState(0) //useState(9)
@@ -47,7 +48,7 @@ function InstagramMedia({ media }) {
           <span>{progress}%</span>
         </>
       )}
-      {!inProgress && <div className="aura" style={{ backgroundImage: aura }} />}@{username}
+      {!inProgress && <div className="aura rays" style={{ backgroundImage: aura }} />}@{username}
     </div>
   )
 }

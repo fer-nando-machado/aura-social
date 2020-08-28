@@ -1,0 +1,43 @@
+@function rand($max, $min: 0, $u: 1) {
+	@return ($min + random($max))*$u;
+}
+
+@keyframes rot { to { transform: rotate(1turn); } }
+
+@function rays() {
+	$n: 16 + random(16);
+	$list: ();
+
+	@for $i from 0 to $n {
+		$list: $list, rgba(hsl(0, 0, rand(100, 50, 1%)), rand(100, 0, .01));
+	}
+
+	@return conic-gradient($list, nth($list, 1));
+}
+
+.rays {
+  overflow: hidden;
+
+	&:before, &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+		width: 360px;
+    height: 360px;
+		opacity: 0.75;
+    object-fit: cover;
+    border-radius: 50%;
+		mix-blend-mode: overlay;
+		animation: rot rand(100, 25, .1s) ease-in-out infinite;
+
+	}
+
+	&:before {
+    background: rays();
+  }
+	&:after {
+		background: rays();
+		animation-duration: rand(100, 25, .1s);
+		animation-direction: reverse;
+	}
+}
