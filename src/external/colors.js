@@ -4,8 +4,9 @@ const colorThief = new ColorThief()
 
 const colors = {
   getPalette: (img, n) => {
-    if (n === 1) return [colorThief.getColor(img, 1)]
-    return colorThief.getPalette(img, n > 10 ? 10 : n, 1)
+    const sampleRate = 25
+    if (n === 1) return [colorThief.getColor(img, sampleRate)]
+    return colorThief.getPalette(img, n > 10 ? 10 : n, sampleRate)
   },
   rgb2hsv: (rgb) => {
     const [r, g, b] = rgb
