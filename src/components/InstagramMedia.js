@@ -12,8 +12,8 @@ function InstagramMedia({ media }) {
   const [aura, setAura] = useState()
 
   const username = media.username
-  const urls = media.images
-  const total = urls.length
+  const images = media.images
+  const total = images.length
   const inProgress = index < total
   const progress = Math.floor((index * 100) / total)
 
@@ -44,7 +44,7 @@ function InstagramMedia({ media }) {
     <div className="InstagramMedia Content">
       {inProgress && (
         <>
-          <img crossOrigin="anonymous" alt="" src={urls[index]} onLoad={(event) => fetchColor(event.target)} />
+          <img crossOrigin="anonymous" alt="" src={images[index].url} onLoad={(event) => fetchColor(event.target)} />
           <span>{progress}%</span>
         </>
       )}
