@@ -24,7 +24,7 @@ const api = {
     try {
       let url =
         "https://graph.instagram.com/me/media" +
-        "?fields=username,media_type,media_url,thumbnail_url" +
+        "?fields=username,media_type,media_url,thumbnail_url,timestamp" +
         "&access_token=" +
         token
 
@@ -38,7 +38,10 @@ const api = {
 
         for (let i = 0; i < body.data.length; i++) {
           const m = body.data[i]
-          images.push(m.media_type === "VIDEO" ? m.thumbnail_url : m.media_url)
+          images.push({
+            url: m.media_type === "VIDEO" ? m.thumbnail_url : m.media_url,
+            date: new Date(m.timestamp),
+          })
         }
         username = body.data[0].username
         url = body.paging.next

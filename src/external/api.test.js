@@ -44,19 +44,28 @@ describe("fetchMedia API", () => {
   test("returns media", () => {
     const bodyFirst = {
       data: [
-        { username: "user", media_type: "IMAGE", media_url: "a.jpg" },
-        { username: "user", media_type: "VIDEO", thumbnail_url: "b.jpg" },
+        { username: "user", media_type: "IMAGE", media_url: "a.jpg", timestamp: "2020-01-01T01:00:00+0000" },
+        { username: "user", media_type: "VIDEO", thumbnail_url: "b.jpg", timestamp: "2020-02-02T02:00:00+0000" },
       ],
       paging: { next: "next.url" },
     }
     const bodyLast = {
-      data: [{ username: "user", media_type: "CAROUSEL_ALBUM", media_url: "c.jpg" }],
+      data: [
+        { username: "user", media_type: "CAROUSEL_ALBUM", media_url: "c.jpg", timestamp: "2020-03-03T03:00:00+0000" },
+      ],
       paging: {},
     }
     fetch.mockResolvedValueOnce({ json: async () => bodyFirst })
     fetch.mockResolvedValueOnce({ json: async () => bodyLast })
 
-    const expected = { username: "user", images: ["a.jpg", "b.jpg", "c.jpg"] }
+    const expected = {
+      username: "user",
+      images: [
+        { url: "a.jpg", date: new Date("2020-01-01T01:00:00+0000") },
+        { url: "b.jpg", date: new Date("2020-02-02T02:00:00+0000") },
+        { url: "c.jpg", date: new Date("2020-03-03T03:00:00+0000") },
+      ],
+    }
     api
       .fetchMedia("token")
       .then((media) => expect(media).toStrictEqual(expected))
