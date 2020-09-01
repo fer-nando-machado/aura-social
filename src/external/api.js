@@ -34,6 +34,7 @@ const api = {
         const response = await fetch(url)
         const body = await response.json()
         if (body.error) throw new Error(body.error)
+        if (!body.data.length) throw new Error("No media found")
 
         for (let i = 0; i < body.data.length; i++) {
           const m = body.data[i]

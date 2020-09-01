@@ -63,6 +63,16 @@ describe("fetchMedia API", () => {
       .catch((error) => fail("it should not return an error"))
   })
 
+  test("returns empty data", () => {
+    const bodyEmpty = { data: [] }
+    fetch.mockResolvedValue({ json: async () => bodyEmpty })
+
+    api
+      .fetchMedia("token")
+      .then((media) => fail("it should not return media"))
+      .catch((error) => expect(error).toBe("No media found"))
+  })
+
   test("returns expected error message", () => {
     const body = { error: "expected error" }
     fetch.mockResolvedValue({ json: async () => body })
