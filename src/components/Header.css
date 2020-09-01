@@ -8,7 +8,6 @@
   justify-content: center;
   text-align: center;
   margin: auto;
-  width: 350px;
 }
 
 .Header .HeaderTitle {
@@ -22,14 +21,14 @@
 
 .Header.HeaderInner {
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .Header.HeaderInner .HeaderTitle {
-  font-size: 48px;
+  font-size: 44px;
 }
 
 .Header.HeaderInner img {
   width: 74px;
-  padding-right: 10px;
+  padding-right: 16px;
 }
