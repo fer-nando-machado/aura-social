@@ -1,10 +1,20 @@
-.InstagramMedia {
-  position: relative;
-  /*display: flex;
-  flex-direction: row;*/
+.InstagramFilter, .InstagramFilter * {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 14px;
+  margin: 0 8px 8px;
 }
 
-.InstagramMedia span {
+.InstagramFilter input[type="date"] {
+  width: 130px;
+}
+
+.InstagramAura {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.InstagramAura span {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -13,19 +23,17 @@
   text-shadow: 0 0 4px #FFFFFF;
 }
 
-.InstagramMedia img {
+.InstagramAura img {
   margin: 20px;
   width: 340px;
   height: 340px;
   object-fit: cover;
   border-radius: 50%;
-  -webkit-animation:spin 2s linear infinite;
-  -moz-animation:spin 2s linear infinite;
-  animation:spin 2s linear infinite;
-  filter: blur(30px);
+  animation:spin 3s linear infinite;
+  filter: blur(35px);
 }
 
-.InstagramMedia .aura {
+.InstagramAura .aura {
   margin: 10px;
   width: 360px;
   height: 360px;
@@ -33,6 +41,6 @@
   animation:spin 60s linear infinite;
 }
 
-.InstagramMedia .hidden {
+.InstagramAura .hidden {
   display: none;
 }
