@@ -24,8 +24,8 @@ function InstagramMedia({ media }) {
   }
 
   useEffect(() => {
-    const min = dateToString(media.images[0].date)
-    const max = dateToString(media.images[media.images.length - 1].date)
+    const min = media.images[0].date
+    const max = media.images[media.images.length - 1].date
 
     setSettings({
       min: min,
@@ -43,7 +43,8 @@ function InstagramMedia({ media }) {
     to.setDate(to.getDate() + 1)
 
     const images = media.images.filter((img) => {
-      return from <= img.date && img.date <= to
+      const date = new Date(img.date)
+      return from <= date && date <= to
     })
 
     const total = images.length
@@ -117,10 +118,6 @@ function InstagramMedia({ media }) {
       <div className="InstagramShare">@{media.username}</div>
     </div>
   )
-}
-
-function dateToString(date) {
-  return date.toISOString().slice(0, 10)
 }
 
 export default InstagramMedia

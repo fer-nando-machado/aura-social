@@ -30,7 +30,7 @@
   object-fit: cover;
   border-radius: 50%;
   animation:spin 3s linear infinite;
-  filter: blur(35px);
+  filter: blur(30px);
 }
 
 .InstagramAura .aura {
