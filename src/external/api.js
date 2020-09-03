@@ -46,7 +46,7 @@ const api = {
         username = body.data[0].username
         url = body.paging.next
       }
-      return { username: username, images: images }
+      return { username: username, images: images.reverse() }
     } catch (error) {
       throw error.message
     }

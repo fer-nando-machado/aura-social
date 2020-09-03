@@ -61,9 +61,9 @@ describe("fetchMedia API", () => {
     const expected = {
       username: "user",
       images: [
-        { url: "a.jpg", date: new Date("2020-01-01T01:00:00+0000") },
-        { url: "b.jpg", date: new Date("2020-02-02T02:00:00+0000") },
         { url: "c.jpg", date: new Date("2020-03-03T03:00:00+0000") },
+        { url: "b.jpg", date: new Date("2020-02-02T02:00:00+0000") },
+        { url: "a.jpg", date: new Date("2020-01-01T01:00:00+0000") },
       ],
     }
     api
