@@ -40,7 +40,7 @@ const api = {
           const m = body.data[i]
           images.push({
             url: m.media_type === "VIDEO" ? m.thumbnail_url : m.media_url,
-            date: new Date(m.timestamp),
+            date: m.timestamp.slice(0, 10),
           })
         }
         username = body.data[0].username
