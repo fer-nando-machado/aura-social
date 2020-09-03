@@ -5,7 +5,8 @@
 }
 
 .InstagramFilter input[type="date"] {
-  width: 130px;
+  width: 112px;
+  font-size: 12px;
 }
 
 .InstagramAura {
