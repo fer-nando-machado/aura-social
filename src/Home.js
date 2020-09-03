@@ -51,6 +51,7 @@ function Home({ query }) {
     else if (code) setStep(1)
   }, [error, code, token, media])
 
+  if (step === undefined) return <></>
   return (
     <div className="Home">
       <Header inner={step > 0} />
