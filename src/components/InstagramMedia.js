@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import Slider from "@material-ui/core/Slider"
 
 import colors from "../external/colors"
 
@@ -6,10 +7,11 @@ import "./InstagramMedia.css"
 import "./InstagramRays.scss"
 
 function InstagramMedia({ media }) {
-  const [settings, setSettings] = useState()
   const [target, setTarget] = useState()
-  const [dateFrom, setDateFrom] = useState()
-  const [dateTo, setDateTo] = useState()
+
+  const [dates, setDates] = useState([])
+  const [marks, setMarks] = useState([])
+  const [range, setRange] = useState([])
 
   const [index, setIndex] = useState(0)
   const [palette, setPalette] = useState([])
@@ -24,23 +26,39 @@ function InstagramMedia({ media }) {
   }
 
   useEffect(() => {
-    const min = media.images[0].date
-    const max = media.images[media.images.length - 1].date
+    const min = media.images[0].date.slice(0, 4)
+    const max = media.images[media.images.length - 1].date.slice(0, 4)
 
-    setSettings({
-      min: min,
-      max: max,
+    const dates = []
+    for (let y = 0, year = min; year <= max; year++, y++) {
+      dates.push(
+        ...Array.from({ length: 12 }, (_, i) => {
+          return {
+            value: i + y * 12,
+            date: new Date(year, i, 1),
+            label: year,
+            option: `${("0" + (i + 1)).slice(-2)} / ${year}`,
+          }
+        })
+      )
+    }
+
+    const marks = dates.filter((d) => d.value % 12 === 0)
+    marks.push({
+      value: dates.length,
+      label: dates[dates.length - 1].label + 1,
     })
-    setDateFrom(min)
-    setDateTo(max)
+    setDates(dates)
+    setMarks(marks)
+    setRange([0, dates.length - 1])
   }, [media])
 
   useEffect(() => {
-    if (!dateFrom || !dateTo) return
+    if (!range || !range.length) return
 
-    const from = new Date(dateFrom)
-    const to = new Date(dateTo)
-    to.setDate(to.getDate() + 1)
+    const from = dates[range[0]].date
+    const to = dates[range[1]].date
+    to.setMonth(to.getMonth() + 1)
 
     const images = media.images.filter((img) => {
       const date = new Date(img.date)
@@ -56,7 +74,7 @@ function InstagramMedia({ media }) {
     setIndex(0)
     setPalette([])
     setAura(null)
-  }, [media, dateFrom, dateTo])
+  }, [media, dates, range])
 
   useEffect(() => {
     if (!target || !index || !palette || !target.total || index < target.total) return
@@ -83,20 +101,15 @@ function InstagramMedia({ media }) {
     <div className="InstagramMedia Content">
       <div className="InstagramFilter">
         <p>Select the period you wish to scan an aura from:</p>
-        <input
-          type="date"
-          value={dateFrom}
-          min={settings.min}
-          max={dateTo}
-          onChange={(e) => (e.target.value > dateTo ? setDateFrom(dateTo) : setDateFrom(e.target.value))}
-        />
-        {" to "}
-        <input
-          type="date"
-          value={dateTo}
-          min={dateFrom}
-          max={settings.max}
-          onChange={(e) => (e.target.value < dateFrom ? setDateTo(dateFrom) : setDateTo(e.target.value))}
+        <Slider
+          value={range}
+          onChange={(_, value) => setRange(value)}
+          marks={marks}
+          valueLabelDisplay="auto"
+          valueLabelFormat={(value) => dates[value].option}
+          getAriaValueText={(value) => dates[value].option}
+          min={0}
+          max={dates.length - 1}
         />
       </div>
 
@@ -106,12 +119,13 @@ function InstagramMedia({ media }) {
             <img
               crossOrigin="anonymous"
               alt=""
-              src={target.images[index].url}
+              src={`${target.images[index].url}&${Math.random()}`}
               onLoad={(event) => fetchColor(event.target)}
             />
             <span>{progress}</span>
           </>
         )}
+        {complete && target.total === 0 && <span className="empty">nothing to scan there</span>}
         {complete && <div className={`aura ${aura ? "rays" : ""}`} style={{ backgroundImage: aura }} />}
       </div>
 

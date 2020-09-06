@@ -1,12 +1,46 @@
-.InstagramFilter, .InstagramFilter * {
-  font-family: 'Oxygen', sans-serif;
-  font-size: 14px;
-  margin: 0 8px 8px;
+.InstagramFilter {
+  width: 90%;
+  padding: 16px;
 }
 
-.InstagramFilter input[type="date"] {
-  width: 120px;
-  font-size: 12px;
+.InstagramFilter p {
+  font-size: 16px;
+}
+
+.InstagramFilter .MuiSlider-markLabel {
+  font-size: 11px;
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+}
+
+.InstagramFilter .MuiSlider-rail,
+.InstagramFilter .MuiSlider-track {
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+}
+
+.InstagramFilter .MuiSlider-mark,
+.InstagramFilter .MuiSlider-markActive {
+  background: white;
+}
+
+.InstagramFilter .MuiSlider-thumb[data-index="0"] {
+  color: #f09433;
+}
+
+.InstagramFilter .MuiSlider-thumb[data-index="1"] {
+  color: #bc1888;
+}
+
+.InstagramFilter .MuiSlider-valueLabel {
+  font-size: 11px;
+}
+
+.InstagramFilter .MuiSlider-markLabel {
+  color: lightgray;
+}
+
+.InstagramFilter .MuiSlider-markLabelActive {
+  color: #262626;
 }
 
 .InstagramAura {
@@ -40,6 +74,10 @@
   height: 360px;
   border-radius: 50%;
   animation:spin 60s linear infinite;
+}
+
+.InstagramAura .empty {
+  font-size: 18px;
 }
 
 .InstagramAura .hidden {
