@@ -126,7 +126,7 @@ function InstagramMedia({ media }) {
           </>
         )}
         {complete && target.total === 0 && <span className="empty">nothing to scan there</span>}
-        {complete && <div className={`aura ${aura ? "rays" : ""}`} style={{ backgroundImage: aura }} />}
+        {complete && <div className={`aura rays`} style={{ backgroundImage: aura }} />}
       </div>
 
       <div className="InstagramShare">@{media.username}</div>
