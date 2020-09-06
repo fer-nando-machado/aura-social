@@ -1,14 +1,10 @@
-.InstagramFilter {
-  width: 90%;
-  padding: 16px;
-}
-
 .InstagramFilter p {
   font-size: 16px;
+  margin: 0;
 }
 
 .InstagramFilter .MuiSlider-markLabel {
-  font-size: 11px;
+  font-size: 10px;
   writing-mode: vertical-rl;
   text-orientation: sideways;
 }
