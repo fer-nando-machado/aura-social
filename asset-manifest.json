@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/aura-social/static/css/main.b8b00eb7.chunk.css",
-    "main.js": "/aura-social/static/js/main.0f57a775.chunk.js",
-    "main.js.map": "/aura-social/static/js/main.0f57a775.chunk.js.map",
+    "main.css": "/aura-social/static/css/main.c07fcd53.chunk.css",
+    "main.js": "/aura-social/static/js/main.5f7c5f25.chunk.js",
+    "main.js.map": "/aura-social/static/js/main.5f7c5f25.chunk.js.map",
     "runtime-main.js": "/aura-social/static/js/runtime-main.c8f377a3.js",
     "runtime-main.js.map": "/aura-social/static/js/runtime-main.c8f377a3.js.map",
     "static/js/2.356e2929.chunk.js": "/aura-social/static/js/2.356e2929.chunk.js",
     "static/js/2.356e2929.chunk.js.map": "/aura-social/static/js/2.356e2929.chunk.js.map",
     "index.html": "/aura-social/index.html",
-    "precache-manifest.ebed52613a06f2cc9051bc878501e5da.js": "/aura-social/precache-manifest.ebed52613a06f2cc9051bc878501e5da.js",
+    "precache-manifest.1fc194cc0aa699d4cd1e16e5b7cacc84.js": "/aura-social/precache-manifest.1fc194cc0aa699d4cd1e16e5b7cacc84.js",
     "service-worker.js": "/aura-social/service-worker.js",
-    "static/css/main.b8b00eb7.chunk.css.map": "/aura-social/static/css/main.b8b00eb7.chunk.css.map",
+    "static/css/main.c07fcd53.chunk.css.map": "/aura-social/static/css/main.c07fcd53.chunk.css.map",
     "static/js/2.356e2929.chunk.js.LICENSE.txt": "/aura-social/static/js/2.356e2929.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c8f377a3.js",
     "static/js/2.356e2929.chunk.js",
-    "static/css/main.b8b00eb7.chunk.css",
-    "static/js/main.0f57a775.chunk.js"
+    "static/css/main.c07fcd53.chunk.css",
+    "static/js/main.5f7c5f25.chunk.js"
   ]
 }
