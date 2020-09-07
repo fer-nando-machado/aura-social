@@ -6,7 +6,7 @@ function BetaBanner() {
     <div className="BetaBanner">
       <a href="https://fernandomachado90.github.io">
         <i>[Beta] </i>
-        Reach me <span>anywhere</span> to request access
+        Message me <span>anywhere</span> to request access
       </a>
     </div>
   )
