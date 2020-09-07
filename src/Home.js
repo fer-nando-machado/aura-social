@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react"
 import "./Home.css"
 
 import Header from "./components/Header"
+import BetaBanner from "./components/BetaBanner"
 import Footer from "./components/Footer"
 import InstagramAccess from "./components/InstagramAccess"
 import InstagramError from "./components/InstagramError"
@@ -14,7 +15,7 @@ import debug from "./debug"
 import api from "./external/api"
 
 function Home({ query }) {
-  const [step, setStep] = useState(0)
+  const [step, setStep] = useState()
   const [error, setError] = useState()
   const [code, setCode] = useState()
   const [token, setToken] = useState()
@@ -49,11 +50,13 @@ function Home({ query }) {
     else if (media) setStep(3)
     else if (token) setStep(2)
     else if (code) setStep(1)
+    else setStep(0)
   }, [error, code, token, media])
 
   if (step === undefined) return <></>
   return (
     <div className="Home">
+      {step === 0 && <BetaBanner />}
       <Header inner={step > 0} />
       {
         {
