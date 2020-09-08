@@ -4,9 +4,9 @@ import "./BetaBanner.css"
 function BetaBanner() {
   return (
     <div className="BetaBanner">
-      <a href="https://fernandomachado90.github.io">
+      <a href="https://fernandomachado90.github.io#connect">
         <i>[Beta] </i>
-        Message me <span>anywhere</span> to request access
+        Send me a message <span>anywhere</span> to request access
       </a>
     </div>
   )
