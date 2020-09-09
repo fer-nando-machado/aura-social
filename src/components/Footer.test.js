@@ -8,7 +8,7 @@ test("renders Footer", () => {
 
   const author = getByText(/Made with ♡ by Fernando Machado/i)
   expect(author).toBeInTheDocument()
-  expect(links[0]).toHaveAttribute("href", "https://github.com/fernandomachado90/aura-social")
+  expect(links[0]).toHaveAttribute("href", "https://fernandomachado90.github.io/")
 
   const icons = getByText(/Icons by Good Ware/i)
   expect(icons).toBeInTheDocument()

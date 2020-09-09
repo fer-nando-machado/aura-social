@@ -4,7 +4,7 @@ import "./Footer.css"
 function Footer() {
   return (
     <div className="Footer">
-      <a className="Link" href="https://github.com/fernandomachado90/aura-social">
+      <a className="Link" href="https://fernandomachado90.github.io/">
         <span>Made with ♡ by Fernando Machado</span>
       </a>
       {" | "}
