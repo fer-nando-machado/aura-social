@@ -2,6 +2,8 @@
 
 React frontend page for **Aura Social**. See also [aura-social-api](https://github.com/fernandomachado90/aura-social-api).
 
+![aura social demo](https://github.com/fernandomachado90/aura-social/blob/master/demo.gif?raw=true)
+
 ## Requisites
 
 - [Node](https://nodejs.org/en/)
